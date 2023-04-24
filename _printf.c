@@ -13,50 +13,42 @@
  */
 int _printf(const char *format, ...)
 {
-    va_list args;
-    int count = 0;
-    const char *p = format;
+va_list args;
+int count = 0;
+const char *p = format;
+	if (format == NULL)
+	return (-1);
+	va_start(args, format);
+	while (*p != '\0')
+{
+	if (*p == '%')
+{
+		p++;
+	switch (*p)
+{
+	case 'c':
+		count += _putchar(va_arg(args, int));
+	break;
 
-    if (format == NULL)
-        return (-1);
+	case 's':
+		count += _puts(va_arg(args, char *));
+	break;
 
-    va_start(args, format);
-
-    while (*p != '\0')
-    {
-        if (*p == '%')
-        {
-            p++;
-
-            switch (*p)
-            {
-                case 'c':
-                    count += _putchar(va_arg(args, int));
-                    break;
-
-                case 's':
-                    count += _puts(va_arg(args, char *));
-                    break;
-
-                case '%':
-                    count += _putchar('%');
-                    break;
-
-                default:
-                    count += _putchar('%');
-                    count += _putchar(*p);
-                    break;
-            }
-        }
-        else
-        {
-            count += _putchar(*p);
-        }
-
-        p++;
-    }
-
-    va_end(args);
-
-    return (count);
+	case '%':
+		count += _putchar('%');
+	break;
+	default:
+		count += _putchar('%');
+		count += _putchar(*p);
+	break;
+}
+}
+	else
+	{
+		count += _putchar(*p);
+}
+		p++;
+}
+		va_end(args);
+		return (count);
 }
