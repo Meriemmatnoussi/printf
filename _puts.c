@@ -22,9 +22,10 @@ int _putchar(char c)
 #include <string.h>
 #include "main.h"
 
+
 /**
-  *_puts _prints a string to stdout
-  *@str: pointer to string to print
+  *_puts - prints a string to the standard output
+  * @str: the string to be printed
   *
   *Return: the number of characters printed
   */
