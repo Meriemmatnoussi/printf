@@ -41,7 +41,15 @@ const char *p = format;
 	case 's':
 		count += _puts(va_arg(args, char *));
 	break;
-
+	case 'd':
+	case 'i':
+	{
+		char buf[12]; /* big enough to hold INT_MIN as a string */
+		int n = va_arg(args, int);
+		sprintf(buf, "%d", n);
+		count += _puts(buf);
+		break;
+	}
 	case '%':
 		count += _putchar('%');
 	break;
