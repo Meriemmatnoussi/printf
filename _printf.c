@@ -26,7 +26,9 @@ while (*p != '\0')
 		case 'c':
 			count += _putchar(va_arg(args, int));
 		break;
-
+		case 'b':
+			count += print_binary(args);
+		break;
 		case 's':
 			count += _puts(va_arg(args, char *));
 		break;
