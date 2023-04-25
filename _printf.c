@@ -4,6 +4,12 @@
 #include <unistd.h>
 #include <string.h>
 #include "main.h"
+#include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <string.h>
+#include "main.h"
 
 /**
  * _printf - prints output to stdout according to a format
